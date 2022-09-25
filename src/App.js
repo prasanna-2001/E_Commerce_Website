@@ -9,9 +9,16 @@ import Cart from './Cart'
 import Error from "./Error";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
+import Header from "./Components/Header";
 const App = () => {
   const theme = {
     colors: {
+      heading: "rgb(24,24,29)",
+      text: "rgba(29, 29, 29, 0.8)",
+      white: "#fff",
+      black: "#212529",
+      helper: "#8490ff",
+
       bg: "#F6F8FA",
       footer_bg: "#0a1435",
       bt: "rgba(98,84,243,0.5)",
@@ -33,6 +40,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -41,8 +49,6 @@ const App = () => {
           <Route path="/singleProduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
-
-
 
         </Routes>
 
