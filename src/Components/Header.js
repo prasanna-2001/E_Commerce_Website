@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <MainHeader>
             <NavLink to="/">
-                <img src="./images/logo.png" alt='logo mera' />
+                <img src="./images/logo.png" alt='logo mera' className='logo' />
             </NavLink>
             <Navbar />
         </MainHeader>
@@ -25,6 +25,7 @@ const MainHeader = styled.header`
  
   .logo{
     height: 5rem;
+    padding-left:4rem;
   }
 `;
 export default Header

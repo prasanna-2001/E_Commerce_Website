@@ -5,7 +5,7 @@ import Services from './Components/Services';
 import Trusted from './Components/Trusted';
 const Home = () => {
     const data = {
-        name: "PRASANGGG",
+        name: "P Mart",
     }
     return <>
         <HeroSection myData={data} />
