@@ -10,6 +10,7 @@ import Error from "./Error";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 const App = () => {
   const theme = {
     colors: {
@@ -51,7 +52,7 @@ const App = () => {
           <Route path="*" element={<Error />} />
 
         </Routes>
-
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
