@@ -1,3 +1,8 @@
+//create context
+import { useEffect } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import axios from 'axios';
+import reducer from "../Reducers/productReducer"
 // Create context(to store te data or product)
 // we need a provider (to provide the data/product)
 // and then we need a consumer(to use that product) = > for that we have UseContext Hook
@@ -16,13 +21,57 @@
 
 //appprovideer ke sath apn ek prouct ie value ya data bhejte hai .. most of the times object jo ki cild use karenge.
 
-//create context
-import { createContext, useContext } from 'react';
+
+//API
+//api apan axios ki madat se call karenge 
+
+
 
 const AppContext = createContext();
 
+const API = "https://api.pujakaitem.com/api/products";
+
+
 const AppProvider = ({ children }) => {
-    return <AppContext.Provider value={{ myName: "Prasanna " }}>{children}</AppContext.Provider>
+    const initialState = {
+        isLoading: false,
+        isError: false,
+        products: [],
+        featureProducts: [],
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+
+
+    const getProducts = async (url) => {
+        dispatch({ type: "MY_Error", payload: products });
+
+        try {
+            const res = await axios.get(url);
+            // console.log(
+            //     "~file: ProductContext.js ~ Line 10 ~ getProducts ~ res",
+            //     res
+            // );
+            const products = await res.data;
+            console.log(
+                "~file: ProductContext.js ~ Line 12 ~ getProducts ~ res",
+                products
+            );
+
+            dispatch({ type: "MY_API_DATA", payload: products });
+        } catch (error) {
+            dispatch({ type: "MY_Error", payload: products });
+        }
+
+    };
+
+    useEffect(() => {
+        getProducts(API);
+    }, []); //second paramter []  is called the array deoendency  jsiise ek hi bar run kaega
+    return <AppContext.Provider value={{ ...state }}>
+        {children}
+    </AppContext.Provider>
 };
 
 

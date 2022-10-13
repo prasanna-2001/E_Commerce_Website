@@ -45,7 +45,7 @@ const Footer = () => {
                 <div>
                   <a
                     href="https://www.linkedin.com/in/prasanna-anjankar-831864209/"
-                    target="_blank">
+                  >
                     <GrLinkedinOption className="icons" />
                   </a>
                 </div>
