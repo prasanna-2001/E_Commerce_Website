@@ -45,7 +45,7 @@ const AppProvider = ({ children }) => {
 
 
     const getProducts = async (url) => {
-        dispatch({ type: "MY_Error", payload: products });
+        dispatch({ type: "SET_LOADING" });
 
         try {
             const res = await axios.get(url);
@@ -59,9 +59,9 @@ const AppProvider = ({ children }) => {
                 products
             );
 
-            dispatch({ type: "MY_API_DATA", payload: products });
+            dispatch({ type: "SET_API_DATA", payload: products });
         } catch (error) {
-            dispatch({ type: "MY_Error", payload: products });
+            dispatch({ type: "API_ERROR" });
         }
 
     };
