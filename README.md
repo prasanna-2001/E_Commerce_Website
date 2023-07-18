@@ -1,19 +1,20 @@
-# Welcome to Thapa Technical React Ecommerce Website Series
+## Follow the 3 Steps and you are good to go.
 
-## Follow the 3 Steps and you are good to go. 
+1: Clone the Project
 
-1: Clone the Project 
+2: simply run the command
 
-2: simply run the command 
-   ### `npm install` 
-   First to install all the packages
-   
-3: run the project using 
-   ### `npm start`
-   
-   ---
+### `npm install`
 
-# Getting Started with Create React App 
+First to install all the packages
+
+3: run the project using
+
+### `npm start`
+
+---
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

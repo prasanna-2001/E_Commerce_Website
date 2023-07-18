@@ -5,37 +5,37 @@ import { Button } from "../styles/Button";
 
 
 const HeroSection = ({ myData }) => {
-    // console.log("~file:HeroSection.js ~ line 6 ~ HeroSection ~ myData", myData);
-    const { name } = myData;
-    return (
-        <Wrapper>
-            <div className="container">
-                <div className="grid grid-two-column">
-                    <div className="hero-section-data">
-                        <p className="intro-data">Welcome to </p>
-                        <h2>{name} </h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem libero harum quisquam at. Doloribus,
-                            animi enim dolor sed iusto minus explicabo ipsum aspernatur ullam fugiat harum veniam dolorum odit numquam!
-                        </p>
-                        <NavLink to="/products">
-                            <Button>Shop Now</Button>
-                        </NavLink>
-                    </div>
-                    {/* homepage image */}
-                    <div className="hero-section-image">
-                        <figure>
-                            <img
-                                src="images/hero.jpg"
-                                alt="hero-section-photo"
-                                className="img-style"
-                            />
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </Wrapper>
-    );
+  // console.log("~file:HeroSection.js ~ line 6 ~ HeroSection ~ myData", myData);
+  const { name } = myData;
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="grid grid-two-column">
+          <div className="hero-section-data">
+            <p className="intro-data">Welcome to </p>
+            <h2>{name} </h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem libero harum quisquam at. Doloribus,
+              animi enim dolor sed iusto minus explicabo ipsum aspernatur ullam fugiat harum veniam dolorum odit numquam!
+            </p>
+            <NavLink to="/products">
+              <Button>Shop Now</Button>
+            </NavLink>
+          </div>
+          {/* homepage image */}
+          <div className="hero-section-image">
+            <figure>
+              <img
+                src="images/hero.jpg"
+                alt="hero-section-pic"
+                className="img-style"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
