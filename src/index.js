@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <AppProvider>
         <App />
-    </AppProvider>
+    </AppProvider>//so that evry compkonent can access the data from the provider
 
 )
     ;

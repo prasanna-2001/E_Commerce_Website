@@ -33,12 +33,15 @@ const API = "https://api.pujakaitem.com/api/products";
 
 
 const AppProvider = ({ children }) => {
+
     const initialState = {
         isLoading: false,
         isError: false,
         products: [],
         featureProducts: [],
-    }
+        isSingleLoading: false,
+        singleProduct: [],
+    };
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -53,11 +56,13 @@ const AppProvider = ({ children }) => {
             //     "~file: ProductContext.js ~ Line 10 ~ getProducts ~ res",
             //     res
             // );
+
+            //products me response me se  only product data save kar liya
             const products = await res.data;
-            console.log(
-                "~file: ProductContext.js ~ Line 12 ~ getProducts ~ res",
-                products
-            );
+            // console.log(
+            //     "~file: ProductContext.js ~ Line 12 ~ getProducts ~ res",
+            //     products
+            // );
 
             dispatch({ type: "SET_API_DATA", payload: products });
         } catch (error) {
@@ -66,10 +71,27 @@ const AppProvider = ({ children }) => {
 
     };
 
+
+    // 2nd api for sinle product
+    const getSingleProduct = async (url) => {
+        dispatch({ type: "SET_SINGLE_LOADING" });
+        try {
+            const res = await axios.get(url);
+            const singleproduct = await res.data;
+            dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleproduct });
+        }
+        catch (error) {
+            dispatch({ type: "SET_SINGLE_ERROR" });
+        }
+    };
+
+
     useEffect(() => {
         getProducts(API);
     }, []); //second paramter []  is called the array deoendency  jsiise ek hi bar run kaega
-    return <AppContext.Provider value={{ ...state }}>
+
+
+    return <AppContext.Provider value={{ ...state, getSingleProduct }}>
         {children}
     </AppContext.Provider>
 };
