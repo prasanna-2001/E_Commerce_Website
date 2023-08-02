@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import styled from 'styled-components';
 const MyImage = ({ imgs = [{ url: "" }] }) => {
-  // console.log(imgs);
-  const [mainImage, setMainImage] = useState(imgs[1]);
+  console.log(imgs);
+  const [mainImage, setMainImage] = useState(imgs[0]);
+
   return (
     <Wrapper>
       <div className="grid grid-four-column">
@@ -15,6 +16,7 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
               className="box-image--style"
               key={index}
               onClick={() => setMainImage(curElm)}
+
             />
           );
         })}
